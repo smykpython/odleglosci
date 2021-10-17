@@ -48,7 +48,7 @@ range1 = st.slider('Odległość w metrach', min_value=0,max_value=4000,step=100
 
 @st.cache
 def load_data(x):
-    dane = pd.read_csv(r"https://github.com/smykpython/odleglosci/blob/main\data/" + x +".csv", delimiter=',' , encoding='utf8')
+    dane = pd.read_csv(r"https://github.com/smykpython/odleglosci/blob/main/data/" + x +".csv", delimiter=',' , encoding='utf8')
     locit2020_geo = gpd.GeoDataFrame(dane, geometry=gpd.points_from_xy(dane.LON, dane.LAT), crs = 'epsg:4326')
     return dane, locit2020_geo
 
