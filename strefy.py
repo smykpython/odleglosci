@@ -8,10 +8,10 @@ from collections import OrderedDict
 from datetime import datetime
 from shapely.geometry import Point
 from shapely import wkt
-from scipy.spatial import cKDTree
+#from scipy.spatial import cKDTree
 import os
-import psycopg2 as pg
-import seaborn as sns
+#import psycopg2 as pg
+#import seaborn as sns
 import matplotlib.pyplot as plt
 import requests
 from shapely.geometry import Point
@@ -20,7 +20,7 @@ import json
 import shapely.wkt
 from datetime import datetime
 from re import search
-import branca
+#import branca
 import time, random
 from streamlit_folium import folium_static
 import folium
