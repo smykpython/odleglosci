@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import streamlit as st
 from datetime import date
 import pandas as pd
@@ -23,10 +24,11 @@ import branca
 import time, random
 from streamlit_folium import folium_static
 import folium
+import fsspec
 
 st.title('Wyznaczanie potencjału strefy dojazdu')
 
-city = ('Trójmiasto', 'Kraków', 'Warszawa')
+city = ('Trojmiasto', 'Krakow', 'Warszawa')
 mode_list = ('car', 'pedestrian')
 mode_list2 = ('shortest', 'fastest')
 selected_city = st.selectbox('Wybierz miasto', city)
@@ -41,12 +43,12 @@ mode2 = st.selectbox('Wybierz ', mode_list2)
 
 range1 = st.slider('Odległość w metrach', min_value=0,max_value=4000,step=100)
 
-  
-
+#https://github.com/smykpython/odleglosci/blob/main/
+#C:\Users\smykra\Documents\python_scripts\DARK_STORE\POTENCJAL\
 
 @st.cache
 def load_data(x):
-    dane = pd.read_csv(r"C:\Users\smykra\Documents\python_scripts\DARK_STORE\POTENCJAL\data/" + x +".csv", delimiter=',')
+    dane = pd.read_csv(r"https://github.com/smykpython/odleglosci/blob/main\data/" + x +".csv", delimiter=',' , encoding='utf8')
     locit2020_geo = gpd.GeoDataFrame(dane, geometry=gpd.points_from_xy(dane.LON, dane.LAT), crs = 'epsg:4326')
     return dane, locit2020_geo
 
