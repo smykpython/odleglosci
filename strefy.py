@@ -4,15 +4,15 @@ from datetime import date
 import pandas as pd
 import numpy as np
 import geopandas as gpd
-from collections import OrderedDict
+#from collections import OrderedDict
 from datetime import datetime
-from shapely.geometry import Point
+#from shapely.geometry import Point
 from shapely import wkt
 #from scipy.spatial import cKDTree
 import os
 #import psycopg2 as pg
 #import seaborn as sns
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import requests
 from shapely.geometry import Point
 from shapely.geometry import Polygon
