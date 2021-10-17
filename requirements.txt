@@ -1,1 +1,1 @@
-pip install geopandas
+geopandas
