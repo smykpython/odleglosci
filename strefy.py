@@ -44,11 +44,13 @@ mode2 = st.selectbox('Wybierz ', mode_list2)
 range1 = st.slider('Odległość w metrach', min_value=0,max_value=4000,step=100)
 
 #https://github.com/smykpython/odleglosci/blob/main/
+#https://raw.githubusercontent.com/smykpython/odleglosci/main/data/Krakow.csv
 #C:\Users\smykra\Documents\python_scripts\DARK_STORE\POTENCJAL\
+#https://zabkapolskasa-my.sharepoint.com/personal/smyk_rafal_zabka_pl/Documents/DARK_STORE/data/Trojmiasto.csv
 
 @st.cache
 def load_data(x):
-    dane = pd.read_csv(r"https://github.com/smykpython/odleglosci/blob/main/data/" + x +".csv", delimiter=',' , encoding='utf8')
+    dane = pd.read_csv(r"https://raw.githubusercontent.com/smykpython/odleglosci/main/data/" + x +".csv", delimiter=',' , encoding='utf8')
     locit2020_geo = gpd.GeoDataFrame(dane, geometry=gpd.points_from_xy(dane.LON, dane.LAT), crs = 'epsg:4326')
     return dane, locit2020_geo
 
@@ -68,9 +70,9 @@ if lons >14 and lats>46 and range1 > 100:
     data_load_state = st.text('Pobieranie danych...')
     data_locit, locit_geo = load_data(selected_city)
     data_load_state.text('Dane pobrane')
-    if st.checkbox('Pokaż dane'):
-        #st.subheader('Dane')
-        st.write(data_locit.head(5))  
+    #if st.checkbox('Pokaż dane'):
+     #   #st.subheader('Dane')
+      #  st.write(data_locit.head(5))  
    
     rangetype ='distance'
     #mode1 = 'fastest'
