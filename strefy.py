@@ -120,10 +120,15 @@ if lons >14 and lats>46 and range1 > 100:
         key_id = 1
         poligony_izo[key_id] = polygon_geom
 
+        st.text(polygon_geom)
+
         poli_isochron1 = pd.DataFrame.from_dict(poligony_izo, orient='index', columns = ['geometry'])
         poli_isochron = gpd.GeoDataFrame(poli_isochron1, geometry = 'geometry', crs='epsg:4326')
-        poli_isochron.reset_index(inplace=True)
-    
+        poli_isochron.reset_index(inplace=True)\
+        
+        st.text(polygon_geom)
+
+
         locit_3city = gpd.sjoin(locit_geo, poli_isochron[['index','geometry']], how='inner', op='intersects')
         locit_3city_1000 = locit_3city.dissolve(by='index', aggfunc={'POPULACJA': 'sum','POPULACJA_20_44':'sum','LICZBA_GOSPODARSTW': 'sum', 'LICZB_LOKALI_MIESZKALNYCH':'sum'})
         locit_3city_1000.drop(columns=['geometry'], inplace=True)
