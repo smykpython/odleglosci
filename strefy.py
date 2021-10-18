@@ -112,7 +112,8 @@ if lons >14 and lats>46 and range1 > 100:
             dl = float(lon(i))
             lat_list.append(szer)
             lon_list.append(dl)
-    
+	st.text(lat_list)
+	st.textlon_list.append
         polygon_geom = Polygon(zip(lon_list, lat_list))
         key_id = 1
         poligony_izo[key_id] = polygon_geom
