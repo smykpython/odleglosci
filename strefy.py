@@ -93,12 +93,14 @@ if lons >14 and lats>46 and range1 > 100:
     time.sleep(sleeptime)
     try:
         y = requests.get(a)
-        st.text(y)
+        #st.text(y)
     except:
         st.text('Bład współrzędnych')
     data = y.json()
     data1 = json.dumps(data, ensure_ascii=False)
     b = json.loads(data1)
+
+    st.text(b)
     
     try:
         b = b['response']['isoline'][0]['component'][0]['shape']
