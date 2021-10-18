@@ -88,12 +88,12 @@ if lons >14 and lats>46 and range1 > 100:
     
     a ="https://isoline.route.ls.hereapi.com/routing/7.2/calculateisoline.json?apiKey=T8ZMw4jnGr25mEZ0fVUh9Zubr9GYGPnhrrMqAwA4JnQ&mode="+mode1+";"+mode2+";traffic:disabled&rangetype="+rangetype+"&start=geo!"+pkt+"&range="+str(range1)
     #print(a)
-#     print(row[1])
     
     sleeptime = random.randint(1,2)
     time.sleep(sleeptime)
     try:
         y = requests.get(a)
+        st.text(y)
     except:
         st.text('Bład współrzędnych')
     data = y.json()
