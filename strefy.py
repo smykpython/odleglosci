@@ -100,7 +100,7 @@ if lons >14 and lats>46 and range1 > 100:
     data1 = json.dumps(data, ensure_ascii=False)
     b = json.loads(data1)
 
-    st.text(b)
+    #st.text(b)
     
     try:
         b = b['response']['isoline'][0]['component'][0]['shape']
@@ -126,9 +126,9 @@ if lons >14 and lats>46 and range1 > 100:
         poli_isochron = gpd.GeoDataFrame(poli_isochron1, geometry = 'geometry', crs='epsg:4326')
         poli_isochron.reset_index(inplace=True)
         
-        st.text(polygon_geom)
+        st.text(poli_isochron.head(4))
 
-        st.write(locit_3city_1000.head(2))
+        st.write(locit_geo.head(4))
 
         locit_3city = gpd.sjoin(locit_geo, poli_isochron[['index','geometry']], how='inner', op='intersects')
         locit_3city_1000 = locit_3city.dissolve(by='index', aggfunc={'POPULACJA': 'sum','POPULACJA_20_44':'sum','LICZBA_GOSPODARSTW': 'sum', 'LICZB_LOKALI_MIESZKALNYCH':'sum'})
