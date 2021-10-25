@@ -27,6 +27,8 @@ import folium
 import fsspec
 import fiona
 
+st.text(gpd.__version__)
+
 st.title('Wyznaczanie potencjału strefy dojazdu')
 
 city = ('Trojmiasto', 'Krakow', 'Warszawa')
@@ -189,7 +191,7 @@ if lons >14 and lats>46 and range1 > 100:
         [lats, lons], popup="Wybrana Lokalizacaj", tooltip=tooltip
     ).add_to(fg)
     
-    obszary2 = folium.GeoJson(data = poli_isochron2,  
+    obszary2 = folium.GeoJson(data = poli_isochron2,
                              style_function=lambda x: {'weight':0.9,'fillColor': 'green','color': 'black','fillOpacity':0.25},
                         #overlay=False,embed=False,control=False,
                         highlight_function=lambda x: {'weight':0.5,'fillColor': 'grey'},
