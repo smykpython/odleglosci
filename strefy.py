@@ -131,7 +131,7 @@ if lons >14 and lats>46 and range1 > 100:
         st.write(locit_geo.head(4))
 
         #locit_3city = gpd.sjoin(locit_geo, poli_isochron[['index','geometry']], how='inner', predicate='intersects')
-        locit_3city = gpd.sjoin(locit_geo, poli_isochron, how='inner')#, predicate='intersects')
+        locit_3city = gpd.sjoin(locit_geo, poli_isochron, how="inner", predicate='intersects')#, predicate='intersects')
         
         st.write(locit_3city_1000.head(4))        
 
