@@ -126,7 +126,7 @@ if lons >14 and lats>46 and range1 > 100:
         poli_isochron = gpd.GeoDataFrame(poli_isochron1, geometry = 'geometry', crs='epsg:4326')
         poli_isochron.reset_index(inplace=True)
         poli_isochron.rename(columns={'Unnamed: 0':'index'}, inplace=True)
-        st.text(poli_isochron.head(1))
+        #st.text(poli_isochron.head(1))
 
         locit_geo.rename(columns={'Unnamed: 0':'index'}, inplace=True)
 
