@@ -140,14 +140,9 @@ if lons >14 and lats>46 and range1 > 100:
         locit_3city = gpd.sjoin(locit_geo, poli_isochron, how='inner')
         #locit_3city = gpd.sjoin(locit_geo, poli_isochron)
         #locit_3city.rename(columns={'Unnamed: 0':'index'}, inplace=True)
-        #st.text(locit_3city.head(4))
         
         locit_3city_1000 = locit_3city.dissolve(by='index', aggfunc={'POPULACJA': 'sum','POPULACJA_20_44':'sum','LICZBA_GOSPODARSTW': 'sum', 'LICZB_LOKALI_MIESZKALNYCH':'sum'})
-        #st.text(locit_3city_1000.head(4))
         locit_3city_1000.drop(columns=['geometry'], inplace=True)
-
-        st.write(locit_3city_1000.head(2))
-        st.write(poli_isochron.head(2))
         poli_isochron2 = poli_isochron.merge(locit_3city_1000, left_on='index', right_on='index', how='left')
     except:
         st.text('Błąd współrzędnych. Sprawdź czy wskazane współrzędne leżą w wybranym mieście.')
