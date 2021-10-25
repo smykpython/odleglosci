@@ -172,12 +172,8 @@ if lons >14 and lats>46 and range1 > 100:
         attr = 'Esri',
         name = 'Esri Satellite',
         overlay = False, control = True, show= True ).add_to(m)
-
-
-    
+   
     isodist = range1/1000
-
-
 
     fg = folium.FeatureGroup(name='Lokalizacja', control=True)
     m.add_child(fg)
@@ -193,12 +189,12 @@ if lons >14 and lats>46 and range1 > 100:
     
     obszary2 = folium.GeoJson(data = poli_isochron2,
                              style_function=lambda x: {'weight':0.9,'fillColor': 'green','color': 'black','fillOpacity':0.25},
-                        #overlay=False,embed=False,control=False,
-                        highlight_function=lambda x: {'weight':0.5,'fillColor': 'grey'},
-                               tooltip=folium.GeoJsonTooltip(fields=['POPULACJA','POPULACJA_20_44','LICZBA_GOSPODARSTW','LICZB_LOKALI_MIESZKALNYCH'],
-                              labels=True,
-                        zoom_on_click=False,sticky=False),
-                        show=True).add_to(fg3)
+                             #overlay=False,embed=False,control=False,
+                             highlight_function=lambda x: {'weight':0.5,'fillColor': 'grey'},
+                             tooltip=folium.GeoJsonTooltip(fields=['POPULACJA','POPULACJA_20_44','LICZBA_GOSPODARSTW','LICZB_LOKALI_MIESZKALNYCH'],
+                             labels=True,
+                             zoom_on_click=False,sticky=False),
+                             show=True).add_to(fg3)
     m.add_child(folium.map.LayerControl(collapsed=False))
 
     # call to render Folium map in Streamlit
