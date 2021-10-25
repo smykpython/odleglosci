@@ -126,16 +126,20 @@ if lons >14 and lats>46 and range1 > 100:
         poli_isochron = gpd.GeoDataFrame(poli_isochron1, geometry = 'geometry', crs='epsg:4326')
         poli_isochron.reset_index(inplace=True)
         poli_isochron.rename(columns={'Unnamed: 0':'index'}, inplace=True)
-        #st.text(poli_isochron.head(1))
+        st.text(poli_isochron.head(1))
 
         locit_geo.rename(columns={'Unnamed: 0':'index'}, inplace=True)
 
-        st.text(locit_geo.head(4))
+        st.text(locit_geo.head(2))
 
         #locit_3city = gpd.sjoin(locit_geo, poli_isochron[['index','geometry']], how='inner', predicate='intersects')
-        locit_3city = gpd.sjoin(locit_geo, poli_isochron, how='inner', predicate='intersects')#, predicate='intersects')
+        #locit_3city = gpd.sjoin(locit_geo, poli_isochron, how='inner', predicate='intersects')#, predicate='intersects')
+
+        locit_3city = gpd.sjoin(locit_geo, poli_isochron)      
+
+        locit_3city.rename(columns={'Unnamed: 0':'index'}, inplace=True)
         
-        st.text(locit_3city.head(4))        
+	st.text(locit_3city.head(4))        
 
         locit_3city_1000 = locit_3city.dissolve(by='index', aggfunc={'POPULACJA': 'sum','POPULACJA_20_44':'sum','LICZBA_GOSPODARSTW': 'sum', 'LICZB_LOKALI_MIESZKALNYCH':'sum'})
 
