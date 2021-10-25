@@ -3,4 +3,4 @@ streamlit_folium
 folium
 fsspec
 Fiona
-rtree==0.9.4
+Rtree==0.9.4
