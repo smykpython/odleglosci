@@ -25,7 +25,7 @@ import time, random
 from streamlit_folium import folium_static
 import folium
 import fsspec
-import Fiona
+import fiona
 
 st.title('Wyznaczanie potencjału strefy dojazdu')
 
