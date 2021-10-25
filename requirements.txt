@@ -2,3 +2,4 @@ geopandas
 streamlit_folium
 folium
 fsspec
+Fiona
