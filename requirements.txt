@@ -4,3 +4,4 @@ folium
 fsspec
 Fiona
 Rtree
+Shapely==1.7.0
