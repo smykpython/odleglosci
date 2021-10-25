@@ -136,8 +136,7 @@ if lons >14 and lats>46 and range1 > 100:
         #locit_3city = gpd.sjoin(locit_geo, poli_isochron, how='inner', predicate='intersects')#, predicate='intersects')
         locit_3city = gpd.sjoin(locit_geo, poli_isochron)
         locit_3city.rename(columns={'Unnamed: 0':'index'}, inplace=True)
-        
-	st.text(locit_3city.head(4))
+        st.text(locit_3city.head(4))
         locit_3city_1000 = locit_3city.dissolve(by='index', aggfunc={'POPULACJA': 'sum','POPULACJA_20_44':'sum','LICZBA_GOSPODARSTW': 'sum', 'LICZB_LOKALI_MIESZKALNYCH':'sum'})
         st.text(locit_3city_1000.head(4))
         locit_3city_1000.drop(columns=['geometry'], inplace=True)
