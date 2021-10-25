@@ -1,4 +1,4 @@
-geopandas 0.6.1
+geopandas==0.6.1
 streamlit_folium
 folium
 fsspec
