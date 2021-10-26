@@ -31,7 +31,7 @@ import fiona
 
 st.title('Wyznaczanie potencjału strefy dojazdu')
 
-city = ('Trojmiasto', 'Krakow', 'Warszawa')
+city = ('Trojmiasto', 'Krakow', 'Warszawa','Poznan', 'Wroclaw')
 mode_list = ('car', 'pedestrian')
 mode_list2 = ('shortest', 'fastest')
 selected_city = st.selectbox('Wybierz miasto', city)
